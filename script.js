@@ -170,18 +170,18 @@ const PRODUCTS = [
   },
 
   // --- CUPCAKES & MUFFINS ---
-  {
-    id: 'cupcake-1',
-    name: 'Red Velvet Swirl Cupcakes (6 Pack)',
-    category: 'cupcakes',
-    categoryName: 'Cupcakes & Muffins',
-    image: 'assets/cupcakesAndMuffins/sara-cervera-zEwgRzJJIvk (1).jpg',
-    description: 'Moist red velvet sponge topped with silky vanilla bean cream cheese frosting and cocoa dust.',
-    price: 'KES 900',
-    priceVal: 900,
-    isCustomQuote: false,
-    badge: 'Top Rated'
-  },
+  // {
+  //   id: 'cupcake-1',
+  //   name: 'Red Velvet Swirl Cupcakes (6 Pack)',
+  //   category: 'cupcakes',
+  //   categoryName: 'Cupcakes & Muffins',
+  //   image: 'assets/cupcakesAndMuffins/sara-cervera-zEwgRzJJIvk (1).jpg',
+  //   description: 'Moist red velvet sponge topped with silky vanilla bean cream cheese frosting and cocoa dust.',
+  //   price: 'KES 900',
+  //   priceVal: 900,
+  //   isCustomQuote: false,
+  //   badge: 'Top Rated'
+  // },
   {
     id: 'cupcake-2',
     name: 'Fresh Blueberry Crumble Muffins (4 Pack)',
@@ -478,7 +478,7 @@ function triggerHeroCTA(action) {
  * ------------------------------------------------------------- */
 function initCatalog() {
   renderCatalog();
-  
+
   // Search listener
   const searchInput = document.getElementById('catalog-search-input');
   if (searchInput) {
@@ -491,7 +491,7 @@ function initCatalog() {
 
 function filterCategory(cat) {
   currentCategory = cat;
-  
+
   // Update button active state
   document.querySelectorAll('.cat-btn').forEach(btn => {
     if (btn.dataset.category === cat) {
@@ -512,8 +512,8 @@ function renderCatalog() {
   // Filter products
   const filtered = PRODUCTS.filter(p => {
     const matchesCat = currentCategory === 'all' || p.category === currentCategory;
-    const matchesSearch = !searchQuery || 
-      p.name.toLowerCase().includes(searchQuery) || 
+    const matchesSearch = !searchQuery ||
+      p.name.toLowerCase().includes(searchQuery) ||
       p.description.toLowerCase().includes(searchQuery) ||
       p.categoryName.toLowerCase().includes(searchQuery);
 
@@ -638,7 +638,7 @@ function initCustomQuoteModal() {
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      
+
       const eventType = document.getElementById('quote-event-type')?.value || 'Special Celebration';
       const cakeFlavor = document.getElementById('quote-flavor')?.value || 'Not specified';
       const servings = document.getElementById('quote-servings')?.value || 'Not specified';
@@ -650,7 +650,7 @@ function initCustomQuoteModal() {
       const text = `Hello Chef Alice & Gims Delicacies! 🎂✨\n\nI would like to request a *Custom Cake Quote* with the following details:\n\n🎉 *Event Type:* ${eventType}\n🍰 *Preferred Flavor:* ${cakeFlavor}\n👥 *Estimated Guests / Servings:* ${servings}\n📅 *Event Date:* ${eventDate}\n📝 *Special Request/Notes:* ${specialNotes}\n\nPlease get back to me with pricing and design suggestions!`;
 
       const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
-      
+
       modal.classList.add('hidden');
       window.open(url, '_blank');
     });
@@ -680,7 +680,7 @@ function initContactForm() {
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    
+
     const name = document.getElementById('contact-name')?.value || 'Valued Customer';
     const email = document.getElementById('contact-email')?.value || 'Not provided';
     const phone = document.getElementById('contact-phone')?.value || 'Not provided';
